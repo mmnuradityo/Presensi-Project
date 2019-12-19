@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.activity.MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_main"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_appbar"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_main"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_appbar"
+            android:title="@string/app_name"
+            android:background="@color/colorPrimary"
+            android:layout_alignParentTop="true"
+            app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vp_menu_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/appbar_main"
+        android:layout_marginBottom="@dimen/space_appbar"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav_main"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_appbar"
+        android:layout_marginTop="@dimen/space_medium"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorWhite"
+        app:itemIconTint="@drawable/state_list"
+        app:itemTextColor="@drawable/state_list"
+        app:menu="@menu/menu_bottom_nav"
+        app:labelVisibilityMode="labeled"
+        app:elevation="@dimen/space_medium"
+        android:animateLayoutChanges="false" />
+
+</RelativeLayout>

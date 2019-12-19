@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context=".view.fragment.HomeFragment">
+
+   <TextView
+       android:id="@+id/tv_title_home"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:textSize="@dimen/text_normal"
+       android:text="Silahkan memilih cara login"
+       android:layout_margin="@dimen/space_large"
+       android:textStyle="bold"
+       android:gravity="center"
+       android:textColor="@color/colorTextBlack"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_title_home"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/ll_scanbarcode_home"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="@dimen/space_normal"
+            android:background="@drawable/roundedcorner"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/space_normal">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/ic_launcher_round" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/space_medium"
+                android:text="Scan Barcode"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_detail" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_inputbarcode_home"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="@dimen/space_normal"
+            android:background="@drawable/roundedcorner"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/space_normal">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/ic_launcher_round" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/space_medium"
+                android:text="Input Code"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_detail" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="test"
+        />
+
+</RelativeLayout>

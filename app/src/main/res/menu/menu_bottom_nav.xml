@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/homeBottom"
+        android:enabled="true"
+        android:icon="@drawable/ic_home"
+        android:title="Home"
+        app:showAsAction="ifRoom"
+        />
+    <item
+        android:id="@+id/agendaBottom"
+        android:enabled="true"
+        android:icon="@drawable/ic_agenda"
+        android:title="schedule"
+        app:showAsAction="ifRoom"
+        />
+    <item
+        android:id="@+id/presenceBottom"
+        android:enabled="true"
+        android:icon="@drawable/ic_presence"
+        android:title="Presence"
+        app:showAsAction="ifRoom"
+        />
+    <item
+        android:id="@+id/profileBottom"
+        android:enabled="true"
+        android:icon="@drawable/ic_account"
+        android:title="Profile"
+        app:showAsAction="ifRoom"
+        />
+
+
+</menu>
