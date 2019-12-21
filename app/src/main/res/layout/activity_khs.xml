@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.KhsActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_khs"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_appbar"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_back_khs"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:tint="@color/colorWhite"
+                android:tintMode="src_atop"
+                android:layout_margin="@dimen/space_normal"
+                android:src="@drawable/ic_back" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar_khs"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/space_appbar"
+                android:title="Transkrip Nilai"
+                android:background="@color/colorPrimary"
+                android:layout_alignParentTop="true"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        </LinearLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_header_khs"
+        android:layout_below="@id/appbar_khs"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_appbar"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/space_large"
+        android:paddingLeft="@dimen/space_large"
+        android:paddingEnd="@dimen/space_large"
+        android:paddingRight="@dimen/space_large"
+        tools:ignore="RtlHardcoded,UselessParent">
+
+        <TextView
+            android:layout_width="8dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:gravity="center"
+            android:text="No"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_title"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Kode"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_title"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="Mata Kuliah"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_title"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="SKS"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_title"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Nilai"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_title"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1.4dp"
+        android:layout_below="@+id/ll_header_khs"
+        android:background="@color/colorTextDetail" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_khs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ll_footer_khs"
+        android:layout_below="@+id/line"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_transkrip_nilai" />
+
+
+    <LinearLayout
+        android:id="@+id/ll_footer_khs"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/space_large"
+        android:paddingLeft="@dimen/space_large"
+        android:paddingEnd="@dimen/space_large"
+        android:paddingRight="@dimen/space_large"
+        tools:ignore="RtlHardcoded,UselessParent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_normal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="8dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Jumlah SKS"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_normal" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Indeks Prestasi"
+                android:gravity="center"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_normal" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_normal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="8dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="24 SKS"
+                android:textStyle="bold"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_normal" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="3.91 SKS"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_normal" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

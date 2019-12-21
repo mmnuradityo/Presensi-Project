@@ -1,6 +1,7 @@
 package com.example.projectpresensi.data.repository;
 
 import com.example.projectpresensi.data.model.Mahasiswa;
+import com.example.projectpresensi.data.model.Nilai;
 import com.example.projectpresensi.data.model.Presence;
 import com.example.projectpresensi.data.model.Schedule;
 
@@ -12,6 +13,7 @@ public class DefaultDataEntities {
     private static List<Mahasiswa> listMahasiswa = new ArrayList<>();
     private static List<Presence> listPresence = new ArrayList<>();
     private static List<Schedule> listSchedule = new ArrayList<>();
+    private static List<Nilai> listNilai = new ArrayList<>();
 
     public static List<Mahasiswa> getDefaultMahasiswa() {
         listMahasiswa.add(new Mahasiswa("Abdul Firdaus", "17.12.0210", "S1 - Sistem Informasi - 04", 1));
@@ -94,6 +96,18 @@ public class DefaultDataEntities {
                 "05.04.08",
                 "Nurhayanto, SE, MBA"));
         return listSchedule;
+    }
+
+    public static List<Nilai> getDefaultNilai() {
+        listNilai.add(new Nilai("SS001", "Pemrograman Client Server", "W", "2", "A"));
+        listNilai.add(new Nilai("SS002", "Metodologi Penelitian", "W", "2", "A"));
+        listNilai.add(new Nilai("SS032", "Rekayasa Perangkat Lunak", "W", "2", "A"));
+        listNilai.add(new Nilai("SS016", "E-Business", "W", "2", "B"));
+        listNilai.add(new Nilai("SS004", "Manajemen Strategik", "W", "2", "A"));
+        listNilai.add(new Nilai("SS008", "Tugas Proyek Media Interaktif", "W", "4", "B"));
+        listNilai.add(new Nilai("SS024", "Keamanan Komputer", "K", "2", "A"));
+        listNilai.add(new Nilai("SS013", "Menejemen Sains", "K", "2", "B"));
+        return listNilai;
     }
 
 }

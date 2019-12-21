@@ -109,7 +109,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:id="@+id/ll_scanbarcode_home"
+            android:id="@+id/ll_khs_profile"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_marginTop="@dimen/space_normal"
@@ -139,7 +139,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/ll_inputbarcode_home"
+            android:id="@+id/ll_transkrip_nilai_profile"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_marginTop="@dimen/space_normal"
