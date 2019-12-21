@@ -16,7 +16,7 @@
             android:id="@+id/toolbar_main"
             android:layout_width="match_parent"
             android:layout_height="@dimen/space_appbar"
-            android:title="@string/app_name"
+            android:title="Home"
             android:background="@color/colorPrimary"
             android:layout_alignParentTop="true"
             app:popupTheme="@style/AppTheme.PopupOverlay"/>
@@ -40,7 +40,7 @@
         app:itemIconTint="@drawable/state_list"
         app:itemTextColor="@drawable/state_list"
         app:menu="@menu/menu_bottom_nav"
-        app:labelVisibilityMode="labeled"
+        app:labelVisibilityMode="unlabeled"
         app:elevation="@dimen/space_medium"
         android:animateLayoutChanges="false" />
 

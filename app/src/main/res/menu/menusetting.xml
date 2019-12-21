@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:tools="http://schemas.android.com/tools"
+<menu
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/MenuSetting"
+        android:id="@+id/Info_kampus_menu"
         android:enabled="true"
-        android:title="Setting"
+        android:title="Info Kampus"
         android:visible="true"
-        app:showAsAction="always"
-        android:iconTint="@color/colorWhite"
-        android:iconTintMode="src_over"
-        android:icon="@drawable/ic_settings"
-        tools:ignore="UnusedAttribute" />
+        app:showAsAction="collapseActionView" />
+
+    <item
+        android:id="@+id/logout_menu"
+        android:enabled="true"
+        android:title="Logout"
+        android:visible="true"
+        app:showAsAction="collapseActionView" />
+
 </menu>

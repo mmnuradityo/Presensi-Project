@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".view.activity.InputCodeActivity">
+
+    <EditText
+        android:id="@+id/et_input_code"
+        android:layout_width="260dp"
+        android:layout_height="45dp"
+        android:hint="Input Code"
+        android:drawableStart="@drawable/ic_et_code"
+        android:drawableLeft="@drawable/ic_et_code"
+        android:drawablePadding="@dimen/space_normal"
+        android:paddingStart="@dimen/space_normal"
+        android:paddingLeft="@dimen/space_normal"
+        android:paddingEnd="@dimen/space_normal"
+        android:paddingRight="@dimen/space_normal"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="@dimen/space_large"
+        android:background="@drawable/background_edittext"
+        android:textSize="@dimen/text_title"
+        android:textColor="@color/colorPrimary"
+        tools:ignore="RtlHardcoded" />
+
+    <Button
+        android:id="@+id/btn_input_code"
+        android:layout_below="@+id/et_input_code"
+        android:layout_width="260dp"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content"
+        android:text="Input"
+        android:textStyle="bold"
+        android:maxHeight="40dp"
+        android:background="@drawable/button_background"
+        android:textColor="@color/colorWhite"
+        android:textAllCaps="false" />
+
+    <ImageView
+        android:id="@+id/iv_back_input_code"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_margin="@dimen/space_normal"
+        android:scaleType="centerCrop"
+        android:tint="@color/colorPrimary"
+        android:tintMode="src_atop"
+        android:src="@drawable/ic_back" />
+
+</RelativeLayout>

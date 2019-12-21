@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class BaseCompponent {
+class BaseCompponent {
 
     public interface Activity extends Component {
         void initComponent(Bundle savedInstanceState);

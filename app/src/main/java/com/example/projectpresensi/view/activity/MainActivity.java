@@ -1,21 +1,19 @@
 package com.example.projectpresensi.view.activity;
 
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.projectpresensi.R;
-import com.example.projectpresensi.view.adapter.ViewPagerAdapter;
+import com.example.projectpresensi.data.sharedpref.PreferenceLogin;
+import com.example.projectpresensi.view.adapter.viewpager.ViewPagerAdapter;
 import com.example.projectpresensi.view.base.BaseActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -26,6 +24,7 @@ public class MainActivity extends BaseActivity {
     private BottomNavigationView bottomNav;
     private ViewPager viewPager;
     private MenuItem prevMenuItem;
+    private PreferenceLogin login;
 
     @Override
     public int setLayout() {
@@ -35,6 +34,7 @@ public class MainActivity extends BaseActivity {
     @Override
     public void initComponent(Bundle savedInstanceState) {
         viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+        login = PreferenceLogin.getInstance(this.getApplicationContext());
     }
 
     @Override
@@ -46,6 +46,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void initView() {
+        setToolbar(0);
         setSupportActionBar(toolbar);
         viewPager.setAdapter(viewPagerAdapter);
     }
@@ -62,31 +63,27 @@ public class MainActivity extends BaseActivity {
 
     private void bottomNavigation() {
 
-        bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        bottomNav.setOnNavigationItemSelectedListener(item -> {
 
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-                switch (item.getItemId()) {
-                    case R.id.homeBottom:
-                        item.setIcon(R.drawable.ic_home);
-                        viewPager.setCurrentItem(0);
-                        break;
-                    case R.id.agendaBottom:
-                        item.setIcon(R.drawable.ic_agenda);
-                        viewPager.setCurrentItem(1);
-                        break;
-                    case R.id.presenceBottom:
-                        item.setIcon(R.drawable.ic_presence);
-                        viewPager.setCurrentItem(2);
-                        break;
-                    case R.id.profileBottom:
-                        item.setIcon(R.drawable.ic_account);
-                        viewPager.setCurrentItem(3);
-                        break;
-                }
-                return false;
-
+            switch (item.getItemId()) {
+                case R.id.homeBottom:
+                    item.setIcon(R.drawable.ic_home);
+                    viewPager.setCurrentItem(0);
+                    break;
+                case R.id.agendaBottom:
+                    item.setIcon(R.drawable.ic_agenda);
+                    viewPager.setCurrentItem(1);
+                    break;
+                case R.id.presenceBottom:
+                    item.setIcon(R.drawable.ic_presence);
+                    viewPager.setCurrentItem(2);
+                    break;
+                case R.id.profileBottom:
+                    item.setIcon(R.drawable.ic_account);
+                    viewPager.setCurrentItem(3);
+                    break;
             }
+            return false;
 
         });
 
@@ -110,7 +107,7 @@ public class MainActivity extends BaseActivity {
                     bottomNav.getMenu().getItem(0).setChecked(false);
                 }
 
-                Log.d("page", "onPageSelected: "+position);
+                setToolbar(position);
                 bottomNav.getMenu().getItem(position).setChecked(true);
                 prevMenuItem = bottomNav.getMenu().getItem(position);
 
@@ -125,20 +122,35 @@ public class MainActivity extends BaseActivity {
 
     }
 
+    private void setToolbar(int position) {
+        if (position == 0) {
+            toolbar.setTitle("Home");
+        } else if (position == 1) {
+            toolbar.setTitle("Jadwal");
+        } else if (position == 2) {
+            toolbar.setTitle("Presensi");
+        } else {
+            toolbar.setTitle("Profil");
+        }
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
-
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.menusetting, menu);
         return  true;
-
     }
 
     public boolean onOptionsItemSelected(MenuItem item){
 
         switch (item.getItemId()){
-            case R.id.MenuSetting:
-                startActivity(new Intent(this, SettingActivity.class));
+            case R.id.Info_kampus_menu:
+                startActivity(new Intent(this, InfoUnivActivity.class));
+                return true;
+            case R.id.logout_menu:
+                login.setLogin(false);
+                startActivity(new Intent(this, LoginActivity.class));
+                finish();
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -150,28 +162,18 @@ public class MainActivity extends BaseActivity {
         alertDialogExit();
     }
 
-    private void alertDialogExit()
-    {
+    private void alertDialogExit() {
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(false);
         builder.setMessage("Apakah anda ingin keluar?");
 
-        builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                finish();
-            }
-        });
-
-        builder.setNeutralButton("Tidak", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
+        builder.setPositiveButton("Ya", (dialog, which) -> finish());
+        builder.setNeutralButton("Tidak", (dialog, which) -> dialog.cancel());
 
         AlertDialog alert = builder.create();
         alert.show();
+
     }
 
 }

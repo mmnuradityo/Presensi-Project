@@ -52,12 +52,18 @@ public class LoginActivity extends BaseActivity {
             String nim = etNim.getText().toString();
             String pass = etPass.getText().toString();
 
-            if (nim.equals("17.12.0210")
+            if ((nim.equals("17.12.0210")
+                    || nim.equals("17.12.0216")
+                    || nim.equals("17.12.0228"))
                 && pass.equals("123456")) {
 
                 login.setLogin(true);
                 login.setNim(nim);
+
+                Toast.makeText(this, "Login Berhasil", Toast.LENGTH_SHORT).show();
+
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                finish();
 
             } else if (nim.equals("") && pass.equals("")) {
 

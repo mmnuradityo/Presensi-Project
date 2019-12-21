@@ -1,4 +1,4 @@
-package com.example.projectpresensi.view.adapter;
+package com.example.projectpresensi.view.adapter.viewpager;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;

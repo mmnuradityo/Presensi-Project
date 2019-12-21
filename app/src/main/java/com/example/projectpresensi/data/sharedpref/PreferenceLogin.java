@@ -39,10 +39,6 @@ public class PreferenceLogin {
         return sharedPreferences.getString("isName", " ");
     }
 
-    public void setNoTelp(String isPass){
-        sharedPreferences.edit().putString("isNoTelp", isPass).apply();
-    }
-
     public void setPass(String isPass){
         sharedPreferences.edit().putString("isPass", isPass).apply();
     }
