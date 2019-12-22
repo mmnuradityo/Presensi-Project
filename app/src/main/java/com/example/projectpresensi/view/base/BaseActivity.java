@@ -18,3 +18,15 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseComp
     }
 
 }
+
+/*
+onCreate(activity) dan onCreateView(fragment) tidak ada karena di pindah dan di konfigurasi pada
+pada Class BaseActivity dan BaseFragment.
+fungsi masing" methode:
+- setLayout() : set tampilan dasar
+- initComponent() : untuk memanggil / menginisiasi suatu class
+- initView() : membangun tampilan
+- findView() : set componen tampilan berdasarkan id
+- loadView() : methode tambahan dari initView
+- listener() : untuk set tombol dan menangani event click
+ */
