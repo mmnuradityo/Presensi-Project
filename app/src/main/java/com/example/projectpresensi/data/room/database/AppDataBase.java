@@ -12,9 +12,11 @@ import com.example.projectpresensi.data.room.dao.NilaiDao;
 import com.example.projectpresensi.data.room.dao.PresenceDao;
 import com.example.projectpresensi.data.room.dao.ScheduleDao;
 
+// class untuk kondfiguransi databse
 @Database(entities = {Mahasiswa.class, Presence.class, Schedule.class, Nilai.class}, version = 2, exportSchema = false)
 public abstract class AppDataBase extends RoomDatabase {
 
+    // panggil class yang digunakan untuk mengakses databse
     public abstract MahasiswaDao mahasiswaDao();
 
     public abstract PresenceDao presenceDao();

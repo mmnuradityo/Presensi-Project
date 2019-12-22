@@ -4,14 +4,14 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-
+// class untuk membuat tabel pada database sql
 @Entity(tableName = "mahasiswa")
 public class Mahasiswa {
 
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey(autoGenerate = true) // primary key kolom tabel
     private int id;
 
-    @ColumnInfo(name = "nama")
+    @ColumnInfo(name = "nama") // kolom tabel
     private String nama;
 
     @ColumnInfo(name = "nim")
@@ -23,6 +23,7 @@ public class Mahasiswa {
     @ColumnInfo(name = "foto")
     private int foto;
 
+    // konstruktor class
     public Mahasiswa(String nama, String nim, String kelas, int foto) {
         this.nama = nama;
         this.nim = nim;
@@ -30,10 +31,12 @@ public class Mahasiswa {
         this.foto = foto;
     }
 
+    // methode untuk mengambil id
     public int getId() {
         return id;
     }
 
+    // methode untuk set id
     public void setId(int id) {
         this.id = id;
     }

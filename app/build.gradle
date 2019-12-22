@@ -31,7 +31,7 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     //circle image
     implementation 'de.hdodenhof:circleimageview:2.2.0'
-    //room
+    //room lobrary untuk sqlite
     implementation "androidx.room:room-runtime:2.2.3"
     annotationProcessor "androidx.room:room-compiler:2.2.3"
     //scanner

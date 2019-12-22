@@ -17,9 +17,9 @@ import static com.example.projectpresensi.data.repository.DefaultDataEntities.ge
 public class KhsActivity extends BaseActivity {
 
     private Toolbar toolbar;
-    private RecyclerView rvKhs;
+    private RecyclerView rvKhs; // list untuk menampilkan data
     private ImageView ivBack;
-    private RvAdapterTranskripNilai adater;
+    private RvAdapterTranskripNilai adater; // class adapter list
 
     @Override
     public int setLayout() {
@@ -28,7 +28,7 @@ public class KhsActivity extends BaseActivity {
 
     @Override
     public void initComponent(Bundle savedInstanceState) {
-        adater = new RvAdapterTranskripNilai(this, 2);
+        adater = new RvAdapterTranskripNilai(this, 2); // inisiasi class adapter list
     }
 
     @Override
@@ -40,14 +40,17 @@ public class KhsActivity extends BaseActivity {
 
     @Override
     public void initView() {
+        // konfigurasi custom appbar
         toolbar.setTitle("Khs");
         setSupportActionBar(toolbar);
+        // konfigurasi list
         rvKhs.setHasFixedSize(true);
         rvKhs.setAdapter(adater);
     }
 
     @Override
     public void loadView() {
+        // memasukan data default ke databse
         if (db.nilaiDao().getAll() == null
                 || db.nilaiDao().getAll().size() == 0) {
             for (Nilai nilai : getDefaultNilai()) {
@@ -64,6 +67,7 @@ public class KhsActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        // mengambil data dari database dan menampilkan data ke list
         adater.setData(db.nilaiDao().getAll());
     }
 

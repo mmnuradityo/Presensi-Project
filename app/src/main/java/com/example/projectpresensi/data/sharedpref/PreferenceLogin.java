@@ -3,6 +3,7 @@ package com.example.projectpresensi.data.sharedpref;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+// databse shared preference untuk login
 public class PreferenceLogin {
     private static PreferenceLogin INSTANCE;
     private SharedPreferences sharedPreferences;
@@ -35,6 +36,7 @@ public class PreferenceLogin {
     public void setNim(String isName){
         sharedPreferences.edit().putString("isName", isName).apply();
     }
+
     public String getNim(){
         return sharedPreferences.getString("isName", " ");
     }
@@ -42,6 +44,7 @@ public class PreferenceLogin {
     public void setPass(String isPass){
         sharedPreferences.edit().putString("isPass", isPass).apply();
     }
+
     public String getPass(){
         return sharedPreferences.getString("isPass", " ");
     }

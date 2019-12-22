@@ -13,9 +13,9 @@ import com.example.projectpresensi.view.base.BaseActivity;
 public class LoginActivity extends BaseActivity {
 
     private PreferenceLogin login;
-    private EditText etNim;
-    private EditText etPass;
-    private Button btnLogin;
+    private EditText etNim; // form input nim
+    private EditText etPass; // form input password
+    private Button btnLogin; // tombol login
 
     @Override
     public int setLayout() {
@@ -40,6 +40,7 @@ public class LoginActivity extends BaseActivity {
 
     }
 
+
     @Override
     public void loadView() {
 
@@ -48,20 +49,21 @@ public class LoginActivity extends BaseActivity {
     @Override
     public void listener() {
         btnLogin.setOnClickListener(v -> {
-
+            // ambil isi dari form
             String nim = etNim.getText().toString();
             String pass = etPass.getText().toString();
-
+            // pengecekan nama dan nim
             if ((nim.equals("17.12.0210")
                     || nim.equals("17.12.0216")
                     || nim.equals("17.12.0228"))
                 && pass.equals("123456")) {
-
+                // set login
                 login.setLogin(true);
                 login.setNim(nim);
 
-                Toast.makeText(this, "Login Berhasil", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Login Berhasil", Toast.LENGTH_SHORT).show(); // tampilkan psesan berhasil login
 
+                // pindah ke tampilan main
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 finish();
 

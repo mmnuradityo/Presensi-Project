@@ -15,7 +15,6 @@ import com.example.projectpresensi.view.activity.KhsActivity;
 import com.example.projectpresensi.view.activity.TranskripNilaiActivity;
 import com.example.projectpresensi.view.base.BaseFragment;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.projectpresensi.AppApplication.db;
@@ -24,8 +23,6 @@ import static com.example.projectpresensi.data.repository.DefaultDataEntities.ge
 public class ProfileFragment extends BaseFragment {
 
     private PreferenceLogin login;
-    private List<String> listNim = new ArrayList<>();
-    private Mahasiswa mahasiswa;
     private TextView tvNama;
     private TextView tvNim;
     private TextView tvKelas;
@@ -63,7 +60,7 @@ public class ProfileFragment extends BaseFragment {
 
     @Override
     public void loadView() {
-        listNim = db.mahasiswaDao().getNim();
+        List<String> listNim = db.mahasiswaDao().getNim();
 
         if (listNim == null
                 || listNim.size() == 0) {
@@ -86,11 +83,11 @@ public class ProfileFragment extends BaseFragment {
     }
 
     private void loadData() {
-        mahasiswa = db.mahasiswaDao().getSingleData(login.getNim());
-        tvNama.setText(mahasiswa.getNama());
-        tvNim.setText(mahasiswa.getNim());
-        tvKelas.setText(mahasiswa.getKelas());
-
+        Mahasiswa mahasiswa = db.mahasiswaDao().getSingleData(login.getNim()); // mengambil data dari database ke model mahaiswa
+        tvNama.setText(mahasiswa.getNama()); // set nama ke text nama
+        tvNim.setText(mahasiswa.getNim()); // set nim ke test nim
+        tvKelas.setText(mahasiswa.getKelas()); // set kelas ke text kelas
+        // set foto berdasar id foto
         if (mahasiswa.getFoto() == 1) {
             ivProfile.setImageResource(R.drawable.abdul);
         } else if (mahasiswa.getFoto() == 2) {

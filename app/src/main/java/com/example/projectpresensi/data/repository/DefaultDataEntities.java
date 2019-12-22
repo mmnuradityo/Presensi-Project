@@ -8,6 +8,7 @@ import com.example.projectpresensi.data.model.Schedule;
 import java.util.ArrayList;
 import java.util.List;
 
+// class untuk membuat data default
 public class DefaultDataEntities {
 
     private static List<Mahasiswa> listMahasiswa = new ArrayList<>();

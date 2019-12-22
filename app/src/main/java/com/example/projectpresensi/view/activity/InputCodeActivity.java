@@ -14,8 +14,8 @@ import static com.example.projectpresensi.AppApplication.db;
 
 public class InputCodeActivity extends BaseActivity {
 
-    private EditText etInputCode;
-    private Button btnInputCode;
+    private EditText etInputCode; // form intup code
+    private Button btnInputCode; // tombol input code
     private ImageView ivBack;
 
     @Override
@@ -48,29 +48,30 @@ public class InputCodeActivity extends BaseActivity {
     @Override
     public void listener() {
 
+        //manangani tombol input keyika di klik
         btnInputCode.setOnClickListener(v -> {
 
-            String inputCode = etInputCode.getText().toString();
+            String inputCode = etInputCode.getText().toString(); // mengambil isi dari form input
             String code = null;
 
             if (!inputCode.equals("")) {
-                code = db.presenceDao().getCode(inputCode);
+                code = db.presenceDao().getCode(inputCode); // panggil databse dan cek datanya benar atau tidak
             } else {
-                Toast.makeText(this, "Silahkan masukan Code", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Silahkan masukan Code", Toast.LENGTH_SHORT).show(); // tapikan pesan error bila form input kosong
             }
 
             if (code != null && !code.equals("")) {
-                Presence presence = db.presenceDao().getSingleData(code);
-                presence.setPresensi(presence.getPresensi() + 1);
-                db.presenceDao().update(presence);
+                Presence presence = db.presenceDao().getSingleData(code); // ambil data dari databse
+                presence.setPresensi(presence.getPresensi() + 1); // update nilai presensi
+                db.presenceDao().update(presence); // update database presendi
 
-                Toast.makeText(this, "Presensi Berhasil", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Presensi Berhasil", Toast.LENGTH_SHORT).show(); // pesan berhasil
 
                 finish();
 
             } else {
 
-                Toast.makeText(this, "Code yang Anda masukan salah", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Code yang Anda masukan salah", Toast.LENGTH_SHORT).show(); // tapikan pesan error bila data kosong
             }
 
         });
