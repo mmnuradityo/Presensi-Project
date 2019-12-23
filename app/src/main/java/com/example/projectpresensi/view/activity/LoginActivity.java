@@ -25,7 +25,7 @@ public class LoginActivity extends BaseActivity {
     @Override
     public void initComponent(Bundle savedInstanceState) {
         login = PreferenceLogin.getInstance(getApplicationContext());
-        login.setPass("123456");
+        login.setPass("654321"); // untuk set login
     }
 
     @Override
@@ -52,11 +52,11 @@ public class LoginActivity extends BaseActivity {
             // ambil isi dari form
             String nim = etNim.getText().toString();
             String pass = etPass.getText().toString();
-            // pengecekan nama dan nim
+            // pengecekan nama dan nim untuk login
             if ((nim.equals("17.12.0210")
                     || nim.equals("17.12.0216")
                     || nim.equals("17.12.0228"))
-                && pass.equals("123456")) {
+                    && pass.equals("654321")) {
                 // set login
                 login.setLogin(true);
                 login.setNim(nim);
